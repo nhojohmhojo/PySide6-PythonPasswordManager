@@ -55,8 +55,6 @@ class MainWindow(QMainWindow):
 
 
 app = QApplication()
-
 window = MainWindow()
 window.show()
-
 app.exec()
