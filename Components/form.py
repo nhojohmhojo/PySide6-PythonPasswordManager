@@ -67,11 +67,7 @@ class Form(QWidget):
 
         # Validate Inputs
         if not website or not username or not password:
-            QMessageBox.warning(
-                self,
-                "Missing Information",
-                "Please fill in all fields."
-            )
+            QMessageBox.warning(self, "Missing Information", "Please fill in all fields.")
             return
 
         # Get Current Row
@@ -81,14 +77,10 @@ class Form(QWidget):
         self.password_table.insertRow(row)
 
         # Website
-        self.password_table.setItem(
-            row, 0, QTableWidgetItem(website)
-        )
+        self.password_table.setItem(row, 0, QTableWidgetItem(website))
 
         # Username
-        self.password_table.setItem(
-            row, 1, QTableWidgetItem(username)
-        )
+        self.password_table.setItem(row, 1, QTableWidgetItem(username))
 
         # Password (Initially Hidden)
         password_item = QTableWidgetItem("•" * len(password))
@@ -98,9 +90,7 @@ class Form(QWidget):
 
         # Show / Hide Button
         toggle_button = QPushButton("Show")
-        toggle_button.clicked.connect(
-            lambda checked=False, r=row: self.toggle_password(r)
-        )
+        toggle_button.clicked.connect(lambda checked=False, r=row: self.toggle_password(r))
 
         self.password_table.setCellWidget(row, 3, toggle_button)
 
@@ -108,11 +98,7 @@ class Form(QWidget):
         self.clear_fields()
 
         # Success Message
-        QMessageBox.information(
-            self,
-            "Password Saved",
-            "You've successfully saved a password!"
-        )
+        QMessageBox.information(self, "Password Saved", "You've successfully saved a password!")
 
     def toggle_password(self, row):
 
@@ -147,11 +133,7 @@ class Form(QWidget):
 
         # Validate Inputs
         if not website or not username or not password:
-            QMessageBox.warning(
-                self,
-                "Missing Information",
-                "Please fill in all fields."
-            )
+            QMessageBox.warning(self, "Missing Information", "Please fill in all fields.")
             return
 
         if self.editing_row is None:
@@ -160,14 +142,10 @@ class Form(QWidget):
         row = self.editing_row
 
         # Update Website
-        self.password_table.setItem(
-            row, 0, QTableWidgetItem(website)
-        )
+        self.password_table.setItem(row, 0, QTableWidgetItem(website))
 
         # Update Username
-        self.password_table.setItem(
-            row, 1, QTableWidgetItem(username)
-        )
+        self.password_table.setItem(row, 1, QTableWidgetItem(username))
 
         # Update Password (Initially Hidden)
         password_item = QTableWidgetItem("•" * len(password))

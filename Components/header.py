@@ -8,7 +8,6 @@ from styles import TEAL_BUTTON_STYLE, RED_BUTTON_STYLE
 class Header(QWidget):
     def __init__(self, parent=None, password_table=None, form=None, generate_password=None):
         super().__init__(parent)
-
         # Create Layout
         self.layout = QHBoxLayout()
         self.setLayout(self.layout)
@@ -66,11 +65,7 @@ class Header(QWidget):
         selected_rows = self.password_table.selectionModel().selectedRows()
 
         if not selected_rows:
-            QMessageBox.warning(
-                self,
-                "No Selection",
-                "Please select a record to delete."
-            )
+            QMessageBox.warning(self, "No Selection", "Please select a record to delete.")
             return
 
         # Confirm deletion

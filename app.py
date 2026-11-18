@@ -24,12 +24,11 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.central_widget)
         # Main Layout
         self.layout = QVBoxLayout(self.central_widget)
-        # Custom Components
+        # Initialize Custom Components
         self.password_table = PasswordTable(self)
         self.form = Form(self, self.password_table.table)
         self.generate_password = GeneratePassword(self, self.form)
         self.header = Header(self, self.password_table.table, self.form, self.generate_password)
-        # Give Form access to Header
         self.form.header = self.header
         # Dark Mode
         self.dark_mode_switch = QCheckBox("Dark Mode")
@@ -55,8 +54,6 @@ class MainWindow(QMainWindow):
 
 
 app = QApplication()
-
 window = MainWindow()
 window.show()
-
 app.exec()
